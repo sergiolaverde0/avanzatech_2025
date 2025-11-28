@@ -11,6 +11,8 @@ public:
     {
     }
     BSTNode* add_child(const T& value);
+    BSTNode<T>* remove(const T& value);
+    BSTNode<T>* search(const T& value);
 };
 
 #endif // !BST_HPP

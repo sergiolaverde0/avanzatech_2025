@@ -33,5 +33,6 @@ int main(void)
     Persona* diana = new Persona("Diana", 28);
     diana->saludar();
     cout << Persona::num_instances << endl;
+    delete diana;
     return 0;
 }

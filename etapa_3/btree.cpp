@@ -24,4 +24,5 @@ int main(void)
     cout << "Height: " << a->height() << endl;
     cout << "Is full?: " << a->full() << endl;
     cout << "Number of nodes: " << a->count() << endl;
+    delete a;
 }
