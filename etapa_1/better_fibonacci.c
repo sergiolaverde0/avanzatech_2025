@@ -7,7 +7,7 @@ long better_fibonacci(unsigned int num)
         return 0;
     }
     long array[num + 1];
-    for (int i = 0; i < num + 1; i++) {
+    for (unsigned i = 0; i < num + 1; i++) {
         if (i == 0) {
             array[0] = 0;
         } else if (i == 1) {
