@@ -25,9 +25,8 @@ void printArray(const int* arreglo, int size)
 
 int main(void)
 {
-    int* arreglo = NULL;
     int size = 5;
-    arreglo = malloc(sizeof(int) * size);
+    int* arreglo = malloc(sizeof(int) * size);
 
     if (arreglo == NULL) {
         return 1;
@@ -40,7 +39,7 @@ int main(void)
     printArray(arreglo, size);
 
     int new_size = 7;
-    int* new_array = realloc(arreglo, new_size);
+    int* new_array = realloc(arreglo, sizeof(int) * new_size);
 
     if (new_array == NULL) {
         free(arreglo);

@@ -1,1 +1,4 @@
-out
+build/
+data/
+out/
+gmon.out
