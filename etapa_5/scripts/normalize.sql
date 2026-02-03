@@ -1,3 +1,38 @@
+INSERT INTO cda(
+    event_id,
+    impact_event_time,
+    qp_amplitude,
+    qi_amplitude,
+    qt_amplitude,
+    qc_amplitude,
+    spacecraft_sun_distance,
+    spacecraft_saturn_distance,
+    spacecraft_x_velocity,
+    spacecraft_y_velocity,
+    spacecraft_z_velocity,
+    counter_number,
+    particle_mass,
+    particle_charge
+) SELECT
+    event_id ::INTEGER,
+    impact_event_time ::TIMESTAMP,
+    qp_amplitude ::NUMERIC,
+    qi_amplitude ::NUMERIC,
+    qt_amplitude ::NUMERIC,
+    qc_amplitude ::NUMERIC,
+    spacecraft_sun_distance ::NUMERIC,
+    spacecraft_saturn_distance ::NUMERIC,
+    spacecraft_x_velocity ::NUMERIC,
+    spacecraft_y_velocity ::NUMERIC,
+    spacecraft_z_velocity ::NUMERIC,
+    CASE counter_number
+        WHEN '**' THEN NULL
+        ELSE counter_number ::INTEGER
+    END AS counter_number,
+    particle_mass ::NUMERIC,
+    particle_charge ::NUMERIC
+FROM
+    import.cda_import;
 INSERT INTO teams(description) SELECT
     DISTINCT i.team
 FROM
@@ -49,3 +84,4 @@ LEFT JOIN requests
 LEFT JOIN event_types
     ON i.library_definition = event_types.description;
 DROP TABLE import.master_plan_import;
+DROP TABLE import.cda_import;

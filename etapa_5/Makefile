@@ -2,6 +2,7 @@ DB=enceladus
 USER=office
 SCRIPTS=${CURDIR}/scripts
 PLAN='${CURDIR}/data/master_plan.csv'
+CDA='${CURDIR}/data/CDA/cda.csv'
 BUILD=${CURDIR}/build/build.sql
 NORMALIZE=$(SCRIPTS)/normalize.sql
 IMPORT=$(SCRIPTS)/import.sql
@@ -15,7 +16,9 @@ schema:
 
 master: schema
 	@printf "\\copy import.master_plan_import \
-	FROM $(PLAN) WITH (FORMAT CSV, HEADER); \n" >> $(BUILD)
+	FROM $(PLAN) WITH (FORMAT CSV, HEADER);\n\
+	\\copy import.cda_import \
+	FROM $(CDA) WITH (FORMAT CSV, HEADER);\n" >> $(BUILD)
 
 normalize: master
 	@cat $(NORMALIZE) >> $(BUILD)
