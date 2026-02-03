@@ -40,7 +40,7 @@ CREATE TABLE event_types(
 );
 CREATE TABLE master_plan(
     id serial PRIMARY KEY,
-    time_stamp timestamptz NOT NULL,
+    time_stamp timestamp NOT NULL,
     title TEXT,
     description TEXT,
     team_id INT REFERENCES teams(team_id),

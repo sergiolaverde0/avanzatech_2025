@@ -28,7 +28,7 @@ INSERT INTO master_plan(
     request_id,
     event_id
 ) SELECT
-    CAST(i.start_time_utc AS timestamptz),
+    CAST(i.start_time_utc AS TIMESTAMP),
     i.title,
     i.description,
     teams.team_id,
