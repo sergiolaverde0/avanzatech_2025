@@ -48,3 +48,4 @@ LEFT JOIN requests
     ON i.request_name = requests.description
 LEFT JOIN event_types
     ON i.library_definition = event_types.description;
+DROP TABLE import.master_plan_import;

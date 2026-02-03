@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS master_plan;
+DROP TABLE IF EXISTS master_plan CASCADE;
 DROP TABLE IF EXISTS teams;
 DROP TABLE IF EXISTS spass_types;
 DROP TABLE IF EXISTS targets;
@@ -9,7 +9,7 @@ CREATE SCHEMA IF NOT EXISTS import;
 CREATE TABLE import.master_plan_import(
     start_time_utc TEXT,
     duration TEXT,
-    DATE TEXT,
+    date TEXT,
     team TEXT,
     spass_type TEXT,
     target TEXT,

@@ -5,8 +5,9 @@ PLAN='${CURDIR}/data/master_plan.csv'
 BUILD=${CURDIR}/build/build.sql
 NORMALIZE=$(SCRIPTS)/normalize.sql
 IMPORT=$(SCRIPTS)/import.sql
+VIEW=$(SCRIPTS)/views.sql
 
-all: normalize
+all: view
 	psql -d $(DB) -U $(USER) -f $(BUILD)
 
 schema:
@@ -18,6 +19,9 @@ master: schema
 
 normalize: master
 	@cat $(NORMALIZE) >> $(BUILD)
+
+view: normalize
+	@cat $(VIEW) >> $(BUILD)
 
 clean:
 	@rm -rf $(BUILD)
