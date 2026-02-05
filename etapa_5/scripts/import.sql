@@ -1,4 +1,6 @@
 DROP TABLE IF EXISTS cda;
+DROP TABLE IF EXISTS flybys;
+DROP TABLE IF EXISTS chem_data;
 DROP TABLE IF EXISTS master_plan CASCADE;
 DROP TABLE IF EXISTS teams;
 DROP TABLE IF EXISTS spass_types;
@@ -83,4 +85,18 @@ CREATE TABLE cda(
     counter_number numeric,
     particle_mass numeric,
     particle_charge numeric
+);
+CREATE TABLE flybys(
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    date DATE NOt NULL,
+    altitude NUMERIC(7,1),
+    speed NUMERIC(7,1)
+);
+CREATE TABLE chem_data(
+    name TEXT,
+    formula TEXT,
+    mol_weight INTEGER,
+    peak INTEGER,
+    sensitivity NUMERIC
 );
