@@ -1,3 +1,19 @@
+DROP FUNCTION IF EXISTS pythag(
+    NUMERIC,
+    NUMERIC,
+    NUMERIC
+);
+CREATE FUNCTION pythag(
+    x NUMERIC,
+    y NUMERIC,
+    z NUMERIC,
+    OUT NUMERIC
+) AS $$SELECT
+    SQRT((x * x) + (y * y) + (z * z)) ::NUMERIC(
+        16,
+        6
+    );
+$$LANGUAGE SQL;
 DROP INDEX IF EXISTS idx_event_desc;
 DROP INDEX IF EXISTS idx_event_title;
 DROP MATERIALIZED VIEW IF EXISTS enceladus_events;
